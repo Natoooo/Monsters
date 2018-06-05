@@ -9,7 +9,7 @@ data = [
         email='natooshka@gmail.com',
         password='zizizizi',
         joined_at=parse('2018-06-05'),
-        race=Race.witch_wizard,
+        race="WITCH_WIZARD",
         posts=[
         Post(
             title='A good Luck Ritual',
@@ -23,7 +23,7 @@ data = [
         email='arnotto@gmail.com',
         password='cacacaca',
         joined_at=parse('2018-06-07'),
-        race=Race.vampire,
+        race='VAMPIRE',
         posts=[
         Post(
             title='The better blood',

@@ -3,16 +3,7 @@
 
 from monsters import db, ma
 from datetime import datetime
-import enum
-
-class Race(enum.Enum):
-#enum = to list specific races
-    angel = 1
-    demon = 2
-    gost = 3
-    vampire = 4
-    witch_wizard = 5
-    werewolf = 6
+from sqlalchemy.orm import validates #validates = decorator
 
 class User(db.Model):
 #The baseclass for all models is called db.Model
@@ -24,8 +15,15 @@ class User(db.Model):
     email = db.Column(db.Text, unique=True, nullable=False)
     password = db.Column(db.Text, nullable=False)
     joined_at = db.Column(db.DateTime, nullable=True, default=datetime.utcnow())
-    race = db.Column(db.Enum(Race))
+    race = db.Column(db.Text, nullable=False)
     posts = db.relationship('Post')
+
+    @validates('race')
+    def validate_race(self, key, race):
+        if race not in ['ANGEL', 'DEMON', 'GHOST', 'VAMPIRE', 'WITCH_WIZARD', 'WEREWOLF']:
+            raise ValueError("race %s is not valid" % race)
+
+        return race
 
 class UserSchema(ma.ModelSchema): #cf serialisation marshmallow
     class Meta:

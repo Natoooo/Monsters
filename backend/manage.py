@@ -4,7 +4,7 @@ from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 from monsters import app, db
 from monsters.models import *
-#from pytodo.api import *
+from monsters.api import *
 from commands import FixturesCommand
 from datetime import datetime
 
