@@ -38,14 +38,15 @@ data = [
             posted_at=parse('2018-06-09')
         )
     ])
-
 ]
+authToken = "beefc01c-eb4b-43eb-b320-7e4f4393d5bb"
 
 class FixturesCommand(Command):
     def run(self):
         with app.app_context():
-
             for user in data:
                 db.session.add(user)
 
+            db.session.add(AuthToken(user=data[1], token=auth_token))
+            
             db.session.commit()

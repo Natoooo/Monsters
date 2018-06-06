@@ -21,7 +21,7 @@ class User(db.Model):
     @validates('race')
     def validate_race(self, key, race):
         if race not in ['ANGEL', 'DEMON', 'GHOST', 'VAMPIRE', 'WITCH_WIZARD', 'WEREWOLF']:
-            raise ValueError("race %s is not valid" % race)
+            raise ValueError("race %s is not valid" %race)
 
         return race
 
