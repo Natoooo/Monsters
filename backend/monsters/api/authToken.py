@@ -5,12 +5,14 @@ import uuid #unique id
 
 @app.route("/login", methods=["POST"])
 def login():
-    user = User.query.filter(User.name == request.json.get('user', '')).first()
+    user = User.query.filter(User.email == request.json.get('email', '')).first()
 
     if not user:
+        print("no user")
         return "", 401
 
     if user.password != request.json.get('password', ''):
+        print("wrong password")
         return "", 401
 
     token = AuthToken(user=user, token=str(uuid.uuid4())) #unique and difficult to guess
@@ -20,7 +22,7 @@ def login():
 
 @app.route("/logout")
 def logout():
-    token = AuthToken.query.filter(AuthToken.token == request.headers.get('X_Authentificate', "")).first()
+    token = AuthToken.query.filter(AuthToken.token == request.headers.get('X-Authenticate', "")).first()
 
     if not token:
         return "", 401

@@ -13,7 +13,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text, nullable=False)
     email = db.Column(db.Text, unique=True, nullable=False)
-    password = db.Column(db.Text, nullable=False)
+    password = db.Column(db.Text, nullable=False, default="")
     joined_at = db.Column(db.DateTime, nullable=True, default=datetime.utcnow())
     race = db.Column(db.Text, nullable=False)
     posts = db.relationship('Post')
@@ -29,6 +29,7 @@ class UserSchema(ma.ModelSchema): #cf serialisation marshmallow
     class Meta:
         model = User
         include_fk = True #fk= foreignKey.
+        exclude = ['password']
 
 user_schema = UserSchema()
 users_schema = UserSchema(many=True)

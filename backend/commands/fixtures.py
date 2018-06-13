@@ -39,7 +39,8 @@ data = [
         )
     ])
 ]
-authToken = "beefc01c-eb4b-43eb-b320-7e4f4393d5bb"
+#authToken = "beefc01c-eb4b-43eb-b320-7e4f4393d5bb"
+authToken = "5d7cb6bf-58ea-440b-9509-b359869c9b95"
 
 class FixturesCommand(Command):
     def run(self):
@@ -47,6 +48,6 @@ class FixturesCommand(Command):
             for user in data:
                 db.session.add(user)
 
-            db.session.add(AuthToken(user=data[1], token=auth_token))
-            
+            db.session.add(AuthToken(user=data[0], token=authToken))
+
             db.session.commit()
