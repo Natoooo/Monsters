@@ -1,4 +1,4 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
   devServer: {
@@ -8,6 +8,9 @@ module.exports = {
   devtool: 'source-map',
   stats: {
     errorDetails: true
+  },
+  performance: {
+    hints: false
   },
   module: {
     rules: [
