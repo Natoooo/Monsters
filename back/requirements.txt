@@ -5,3 +5,7 @@ marshmallow-sqlalchemy
 flask-sqlalchemy
 Flask-Script
 python-dateutil
+flask-cors
+gunicorn
+psycopg2
+psycopg2-binary

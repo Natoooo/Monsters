@@ -1,7 +1,22 @@
 from monsters.models import *
 from monsters import app, db
 from flask import request, g, jsonify
-import uuid #unique id
+import uuid
+
+def auth(fn):
+    def f(**kwargs):
+        token = AuthToken.query.filter(AuthToken.token == request.headers.get('X-Authenticate', "")).first()
+
+        if not token:
+            return "", 401
+
+        g.user = token.user
+        g.token = token
+        return fn(**kwargs)
+
+    f.__name__ = fn.__name__
+    return f
+
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -15,33 +30,16 @@ def login():
         print("wrong password")
         return "", 401
 
-    token = AuthToken(user=user, token=str(uuid.uuid4())) #unique and difficult to guess
+    token = AuthToken(user=user, token=str(uuid.uuid4()))
     db.session.add(token)
     db.session.commit()
     return jsonify({'token': token.token})
 
-@app.route("/logout")
+@app.route("/logout", methods=["DELETE"])
+@auth
 def logout():
-    token = AuthToken.query.filter(AuthToken.token == request.headers.get('X-Authenticate', "")).first()
+    token = AuthToken.query.filter(AuthToken.user_id == g.user.id).first_or_404()
 
-    if not token:
-        return "", 401
-
-    db.session.delete(g.token)
+    db.session.delete(token)
     db.session.commit()
     return "", 200
-
-def auth(fn):
-    def f(**kwargs):
-        token = AuthToken.query.filter(AuthToken.token == request.headers.get('X-Authenticate', "")).first()
-
-        if not token:
-            return "", 401
-
-        g.user = token.user
-        g.token = token
-        return fn(**kwargs)
-
-    f.__name__ = fn.__name__ #to have a unique function name
-    return f
-    #Have to return the called function with its parameters
