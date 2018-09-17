@@ -37,7 +37,6 @@ ReactDOM.render(
           <NavBar />
           <Error />
           <Loading />
-          <div className="mts-banner"></div>
           <Switch>
             <Route path="/login" render={ () => ( <Login /> ) } />
             <PrivateRoute path="/" render={ () => ( <App /> ) } />
