@@ -18,6 +18,37 @@ data = [
             posted_at=parse('2018-06-06')
         )
     ]),
+
+    User(
+        name='Adelita',
+        email='adelita@gmail.com',
+        password='proutprout',
+        joined_at=parse('2018-09-09'),
+        race="WITCH_WIZARD",
+        posts=[
+        Post(
+            title='A Love Ritual',
+            content="Let's try this love ritual : smashed 3 marguerite and strawberries together and repeat the word love 3 times",
+            image="https://i.ytimg.com/vi/TIdRsXofybM/maxresdefault.jpg",
+            posted_at=parse('2018-06-06')
+        )
+    ]),
+
+    User(
+        name='Berengero',
+        email='berengero@gmail.com',
+        password='pipipipi',
+        joined_at=parse('2018-09-10'),
+        race="DEMON",
+        posts=[
+        Post(
+            title='How to take possession of a human ?',
+            content="Need a lot of power but it's not that hard. You just have to scare him during 3 nights to make him weak. But don't be silly, when I mean scared it's really scared !! Then, when He has no energy left, enter in his mind",
+            image="https://www.affairesdegars.com/webroot/usr_img/2014_avril/asem5/Possession.jpg",
+            posted_at=parse('2018-06-06')
+        )
+    ]),
+
     User(
         name='Arnotto',
         email='arnotto@gmail.com',
@@ -27,7 +58,7 @@ data = [
         posts=[
         Post(
             title='The better blood',
-            content="If you want to taste the better blood of the world, you just have to suck a 24 year old human female, born in August, 21st",
+            content="If you want to taste the better blood of the world, you just have to suck a 24 years old human female, born in August, 21st",
             image="https://fr.cdn.v5.futura-sciences.com/buildsv6/images/wide1920/7/4/7/74795ed1ee_88046_vampire-sang.jpg",
             posted_at=parse('2018-06-08')
         ),
@@ -36,6 +67,36 @@ data = [
             content="I really want to buy THIS cape. So, If you know where to find it, please answer to my post",
             image="https://www.struts.co.uk/party-fancy-dress-shop/images/long-red-velvet-cape-3765_01.jpg",
             posted_at=parse('2018-06-09')
+        )
+    ]),
+
+    User(
+        name='Eddinou',
+        email='eddinou@gmail.com',
+        password='mario',
+        joined_at=parse('2018-09-17'),
+        race="WEREWOLF",
+        posts=[
+        Post(
+            title='Me as a wolf with the moon',
+            content="What do ya think ?",
+            image="https://mythology.net/wp-content/uploads/2018/07/Werewolf-380x240.jpg",
+            posted_at=parse('2018-07-23')
+        )
+    ]),
+
+    User(
+        name='Rachou',
+        email='rachou@gmail.com',
+        password='fleurfleur',
+        joined_at=parse('2018-08-10'),
+        race="ANGEL",
+        posts=[
+        Post(
+            title='How to meditate to calm your anger?',
+            content="Find a place very quiet, take a strong and deep breathe. Then you have to concentrate yourself only on positive thoughts. So easy !",
+            image="https://s-media-cache-ak0.pinimg.com/564x/06/13/27/0613270021eab296a5c7081026aedba4.jpg",
+            posted_at=parse('2018-06-06')
         )
     ])
 ]
