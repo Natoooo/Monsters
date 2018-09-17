@@ -23,13 +23,19 @@ class FilterUsers extends Component {
   }
 
   render() {
+    let userRace = this.props.usersList.map((user, id) => {
+      return <option key={id} className="list-group-item border-0 p-1 mb-2 text-dark">{user.race}</option>
+    })
     return (
       <React.Fragment>
         <div className="form-group row d-block">
           <div className="col-xs-2 center-block">
-            <input className="form-control text-center" value={this.state.input} onChange={this.onChange} placeholder="By race..."/>
-            <input className="form-control text-center" placeholder="By name..."/>
-            <input className="form-control mb-3 text-center" placeholder="By age..."/>
+            <select title="Pick a race" className="selectpicker bg-dark text-white">
+              <option>Select race...</option>
+              {userRace}
+            </select>
+            <input className="form-control text-center text-capitalize" value={this.state.input} onChange={this.onChange}  placeholder="By name..."/>
+            <input className="form-control mb-3 text-center text-capitalize" value={this.state.input} onChange={this.onChange}  placeholder="By age..."/>
             <button className="btn btn-dark">Find</button>
           </div>
         </div>
