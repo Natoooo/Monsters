@@ -68,6 +68,15 @@ class Db {
   _removeToken() {
     localStorage.removeItem('token')
   }
+
+  fetchUsersList() {
+    return fetch(this.baseUrl + "/users", {
+      method: "GET",
+      headers: this._headers()
+    })
+    .then(this._status)
+    .then(this._json)
+  }
 }
 
 export class AuthorizationError extends Error {}
