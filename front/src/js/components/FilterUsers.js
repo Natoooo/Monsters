@@ -25,8 +25,8 @@ class FilterUsers extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="form-group row">
-          <div className="col-xs-2">
+        <div className="form-group row d-block">
+          <div className="col-xs-2 center-block">
             <input className="form-control text-center" value={this.state.input} onChange={this.onChange} placeholder="By race..."/>
             <input className="form-control text-center" placeholder="By name..."/>
             <input className="form-control mb-3 text-center" placeholder="By age..."/>
