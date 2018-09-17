@@ -5,8 +5,8 @@ export class  AddPost extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="container bg-white w-100">
-          <div className="col-md-11 col-md-offset-2">
+        <div className="container bg-white w-100 p-0">
+          <div className="col-md-12 col-md-offset-2 m-0">
 
             <h4 className="container p-2 font-weight-bold">Add a post</h4>
 
@@ -21,7 +21,7 @@ export class  AddPost extends Component {
             </div>
 
             <div className="form-group">
-                <label htmlFor="image">upload image</label>
+                <label htmlFor="image">upload image/video</label>
             </div>
 
             <div className="form-group p-2">

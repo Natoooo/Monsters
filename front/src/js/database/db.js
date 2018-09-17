@@ -77,6 +77,15 @@ class Db {
     .then(this._status)
     .then(this._json)
   }
+
+  fetchPosts() {
+    return fetch(this.baseUrl + "/posts", {
+      method: "GET",
+      headers: this._headers()
+    })
+    .then(this._staus)
+    .then(this._json)
+  }
 }
 
 export class AuthorizationError extends Error {}

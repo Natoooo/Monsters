@@ -1,5 +1,4 @@
 .mts-root {
-  position: fixed;
   background-image: url("../images/my-mts-banner.jpg");
   background-size: cover;
   width: 100%;
@@ -13,6 +12,16 @@
 .mts-user-item:hover {
   color: red;
   cursor: pointer;
+}
+
+.mts-posts-item {
+  width: 90%;
+  text-align: center;
+}
+
+.mts-img-post {
+  width: 100%;
+  height: 60%;
 }
 
 .mts-container-login {
