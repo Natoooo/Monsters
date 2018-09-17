@@ -9,7 +9,12 @@
 .mts-logo {
   width: 40px;
 }
-/*
+
+.mts-user-item:hover {
+  color: red;
+  cursor: pointer;
+}
+
 .mts-container-login {
   position: absolute;
   margin: 200px auto;
@@ -52,4 +57,4 @@
   width: 100%;
   display: inline-block;
   margin-bottom: 10%;
-} */
+}

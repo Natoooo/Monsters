@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
+import FilterUsers from "./FilterUsers"
 import { fetchUsersList } from "../actions/userActions"
 
 class SearchProfiles extends Component {
@@ -14,12 +15,14 @@ class SearchProfiles extends Component {
 
   render() {
     let users = this.props.usersList.map((user, id) => {
-      return <li key={id} className="list-group-item list-group-item-action">{user.name}</li>
+      return <div  key={id} className="mts-user-item"><li className="list-group-item border-0 p-1 mb-2">{user.name}</li></div>
     })
     return (
       <React.Fragment>
-        <div className="container bg-light">
-          <ul className="list-group w-75 p-3">{users}</ul>
+        <div className="container bg-white">
+          <h5 className="container p-2 font-weight-bold">Search Profiles</h5>
+          <FilterUsers />
+          <ul className="list-group mw-100 p-0">{users}</ul>
         </div>
       </React.Fragment>
     )

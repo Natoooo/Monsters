@@ -6,7 +6,7 @@ export class Profile extends Component {
     return (
       <React.Fragment>
         <div className="container bg-light mr-4">
-            <p>PR</p>
+            <h5 className="container p-2 font-weight-bold">Profile</h5>
             <p>PR</p>
             <p>PR</p>
             <p>PR</p>
