@@ -29,15 +29,15 @@ class FilterUsers extends Component {
     return (
       <React.Fragment>
         <div className="form-group row d-block">
-          <div className="col-xs-2 center-block">
-            <select title="Pick a race" className="selectpicker bg-dark text-white">
-              <option>Select race...</option>
+          <div className="input-group col-xs-2 center-block">
+            <select title="Pick a race" className="custom-select bg-white text-dark w-100">
+              <option className="text-center ">By race...</option>
               {userRace}
             </select>
-            <input className="form-control text-center text-capitalize" value={this.state.input} onChange={this.onChange}  placeholder="By name..."/>
-            <input className="form-control mb-3 text-center text-capitalize" value={this.state.input} onChange={this.onChange}  placeholder="By age..."/>
-            <button className="btn btn-dark">Find</button>
           </div>
+          <input className="form-control text-capitalize" value={this.state.input} onChange={this.onChange}  placeholder="By name..."/>
+          <input className="form-control mb-3 text-capitalize" value={this.state.input} onChange={this.onChange}  placeholder="By age..."/>
+          <button className="btn btn-dark">Find</button>
         </div>
       </React.Fragment>
     )

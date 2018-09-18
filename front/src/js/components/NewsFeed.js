@@ -14,7 +14,15 @@ class NewsFeed extends Component {
 
   render() {
     let posts = this.props.posts.map((post, id) => {
-      return <div key={id} className="container p-2 w-100"><div className="mts-posts-item"><h4>{post.title}</h4><p>{post.content}</p><img className="mts-img-post" src={post.image}/></div></div>
+      return (
+        <div key={id} className="container p-2 w-100">
+          <div className="mts-posts-item">
+            <h4>{post.title}</h4>
+            <p>{post.content}</p>
+            <img className="responsive mw-100" src={post.image}/>
+          </div>
+        </div>
+      )
     })
     return (
       <React.Fragment>
