@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import SearchProfiles from "./SearchProfiles"
-import { Profile } from "./Profile"
+import Profile from "./Profile"
 import NewsFeed from "./NewsFeed"
 import { NavBar } from "./NavBar"
-import { AddPost } from "./AddPost"
+import AddPost from "./AddPost"
 
 export class  App extends Component {
   render() {
@@ -14,11 +14,11 @@ export class  App extends Component {
             <div className="col-2 text-center">
               <SearchProfiles />
             </div>
-            <div className="col-8 text-center">
+            <div className="col-7 text-center">
               <AddPost />
               <NewsFeed />
             </div>
-            <div className="col-2 text-center">
+            <div className="col-3 text-center">
               <Profile />
             </div>
           </div>

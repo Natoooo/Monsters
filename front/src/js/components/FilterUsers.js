@@ -23,7 +23,7 @@ class FilterUsers extends Component {
   }
 
   render() {
-    let userRace = this.props.usersList.map((user, id) => {
+    let userRace = this.props.users.map((user, id) => {
       return <option key={id} className="list-group-item border-0 p-1 mb-2 text-dark">{user.race}</option>
     })
     return (
@@ -37,7 +37,7 @@ class FilterUsers extends Component {
           </div>
           <input className="form-control text-capitalize" value={this.state.input} onChange={this.onChange}  placeholder="By name..."/>
           <input className="form-control mb-3 text-capitalize" value={this.state.input} onChange={this.onChange}  placeholder="By age..."/>
-          <button className="btn btn-dark">Find</button>
+          <button className="btn btn-info">Find</button>
         </div>
       </React.Fragment>
     )
@@ -46,7 +46,7 @@ class FilterUsers extends Component {
 
 const mapStateToProps = state => {
   return {
-    usersList: state.usersList
+    users: state.users
   }
 }
 

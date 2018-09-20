@@ -9,6 +9,7 @@ class User(db.Model):
     name = db.Column(db.Text, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.Text, nullable=False, default="")
+    image = db.Column(db.Text, nullable=True)
     joined_at = db.Column(db.DateTime, nullable=True, default=datetime.utcnow())
     race = db.Column(db.Text, nullable=False)
     posts = db.relationship('Post')

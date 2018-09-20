@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
-import { fetchPosts } from "../actions/postActions"
+import { fetchPosts, removePost } from "../actions/postActions"
 
 class NewsFeed extends Component {
   constructor(props) {
     super(props)
+
+    this.removePost = this.removePost.bind(this)
   }
 
   componentDidMount() {
@@ -12,25 +14,38 @@ class NewsFeed extends Component {
     this.props.fetchPosts()
   }
 
+  removePost(postId) {
+    console.log("FETCH_DELETE_POST", this.props.removePost)
+    this.props.removePost(postId)
+  }
+
   render() {
     let posts = this.props.posts.map((post, id) => {
       return (
-        <div key={id} className="container p-2 w-100">
-          <div className="mts-posts-item">
-            <h4>{post.title}</h4>
-            <p>{post.content}</p>
-            <img className="responsive mw-100" src={post.image}/>
+        <div key={id} data-id={post.user_id} className="container mw-100 bg-white">
+          <div className="form-row">
+            <div className="form-group col-12">
+              <h4 className="p-2 font-weight-bold">{post.title}<span className="col-2" onClick={() => {this.removePost(post.id)}} className="mts-delete-post">X</span></h4>
+            </div>
+          </div>
+{ /*         <div className="form-group">
+            <div className="container">By {this.props.users[id].name}</div>
+          </div>*/}
+          <div className="form-group">
+            <div className="container">{post.content}</div>
+          </div>
+          <div className="form-group bg-dark">
+            {post.image != 0 ? <img className="mw-100" src={post.image}/> : ""}
+          </div>
+          <div className="form-group">
+            <span>{post.posted_at}</span>
           </div>
         </div>
       )
-    })
+    }).reverse()
     return (
       <React.Fragment>
-        <div className="container mw-100 bg-white p-3">
-          <div className="row">
-            <ul className="p-0">{posts}</ul>
-          </div>
-        </div>
+        <ul className="container mw-100 p-0">{posts}</ul>
       </React.Fragment>
     )
   }
@@ -38,13 +53,15 @@ class NewsFeed extends Component {
 
 const mapStateToProps = state => {
   return {
-    posts: state.posts
+    posts: state.posts,
+    users: state.users
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return ({
-    fetchPosts: () => { dispatch(fetchPosts()) }
+    fetchPosts: () => { dispatch(fetchPosts()) },
+    removePost: (postId) => { dispatch(removePost(postId))}
   })
 }
 

@@ -7,6 +7,6 @@ import { postReducer } from "./postReducer"
 export const allReducers = combineReducers({
   loading: loadingReducer,
   error: errorReducer,
-  usersList: userReducer,
+  users: userReducer,
   posts: postReducer
 })

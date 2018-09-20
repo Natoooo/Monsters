@@ -83,9 +83,34 @@ class Db {
       method: "GET",
       headers: this._headers()
     })
-    .then(this._staus)
+    .then(this._status)
     .then(this._json)
   }
+
+  createPost(user_id, title, content, image, posted_at) {
+    return fetch(this.baseUrl + "/posts", {
+      method: "POST",
+      headers: this._headers(),
+      body: JSON.stringify({
+        user_id: user_id,
+        title: title,
+        content: content,
+        image: image,
+        posted_at: posted_at
+      })
+    })
+    .then(this._status)
+    .then(this._json)
+  }
+
+  removePost(id) {
+  return fetch(this.baseUrl + "/posts/" + id, {
+    method: "DELETE",
+    headers: this._headers()
+  })
+  .then(this._status)
+  }
+
 }
 
 export class AuthorizationError extends Error {}

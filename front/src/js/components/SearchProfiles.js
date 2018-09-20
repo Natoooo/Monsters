@@ -14,7 +14,7 @@ class SearchProfiles extends Component {
   }
 
   render() {
-    let users = this.props.usersList.map((user, id) => {
+    let users = this.props.users.map((user, id) => {
       return <div  key={id} className="mts-user-item"><li className="list-group-item border-0 p-1 mb-2">{user.name}</li></div>
     })
     return (
@@ -31,7 +31,7 @@ class SearchProfiles extends Component {
 
 const mapStateToProps = state => {
   return {
-    usersList: state.usersList
+    users: state.users
   }
 }
 
