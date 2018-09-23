@@ -7,6 +7,7 @@ data = [
     User(
         name='Natooshka',
         email='natooshka@gmail.com',
+        age = '108',
         password='zizizizi',
         image="http://www.ambiance-sticker.com/images/Image/sticker-portrait-sorciere-ambiance-sticker-KC3988.png",
         joined_at=parse('2018-06-05'),
@@ -23,6 +24,7 @@ data = [
     User(
         name='Adelita',
         email='adelita@gmail.com',
+        age = '90',
         password='proutprout',
         image="https://image.freepik.com/vecteurs-libre/dessin-anime-mignon-fille-portant-le-costume-de-sorciere_43633-502.jpg",
         joined_at=parse('2018-09-01'),
@@ -39,6 +41,7 @@ data = [
     User(
         name='Berengero',
         email='berengero@gmail.com',
+        age='509',
         password='pipipipi',
         image="https://img00.deviantart.net/334c/i/2017/180/e/6/demon_portrait__by_forgetray-dbegkfu.jpg",
         joined_at=parse('2018-09-05'),
@@ -55,6 +58,7 @@ data = [
     User(
         name='Arnotto',
         email='arnotto@gmail.com',
+        age='810',
         password='cacacaca',
         image="http://fc01.deviantart.net/fs71/f/2012/020/a/5/bg2_npc_bodhi_w_blood_by_enkida-d4mh9d8.jpg",
         joined_at=parse('2018-08-07'),
@@ -71,6 +75,7 @@ data = [
     User(
         name='Eddinou',
         email='eddinou@gmail.com',
+        age='69',
         password='mario',
         image="http://www.jeuxactu.com/datas/jeux/w/e/werewolves-within/vn/werewolves-within-56e92c95daf69.jpg",
         joined_at=parse('2018-09-17'),
@@ -87,6 +92,7 @@ data = [
     User(
         name='Rachou',
         email='rachou@gmail.com',
+        age='976',
         password='fleurfleur',
         image="http://www.fondsecran.eu/a/get_photo/365819/2560/1600",
         joined_at=parse('2018-08-10'),

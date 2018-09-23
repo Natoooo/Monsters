@@ -1,4 +1,5 @@
 from monsters.models import *
+from monsters.schemas import *
 from flask import request, g
 from monsters import app, db
 from monsters.api.authToken import auth
@@ -24,5 +25,6 @@ def update_user(id):
 	updt_user = User.query.filter(User.id == id).first_or_404()
 	updt_user.name = request.json['name']
 	updt_user.race = request.json["race"]
+	updt_user.age = request.json["age"]
 	db.session.commit()
 	return user_schema.jsonify(updt_user)

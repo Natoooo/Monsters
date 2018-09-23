@@ -1,4 +1,5 @@
 from monsters.models import *
+from monsters.schemas import *
 from flask import request, g
 from monsters import app, db
 from monsters.api.authToken import auth

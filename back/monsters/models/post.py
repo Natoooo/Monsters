@@ -1,4 +1,4 @@
-from monsters import db, ma
+from monsters import db
 from datetime import datetime
 
 class Post(db.Model):
@@ -10,11 +10,4 @@ class Post(db.Model):
     image = db.Column(db.Text, nullable=True)#image optional
     posted_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-
-class PostSchema(ma.ModelSchema):
-    class Meta:
-        model = Post
-        include_fk = True
-
-post_schema = PostSchema()
-posts_schema = PostSchema(many=True)
+    user = db.relationship('User', back_populates='posts')
