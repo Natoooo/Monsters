@@ -10,6 +10,12 @@ def get_user(id):
 	user = User.query.filter(User.id == id).first()
 	return user_schema.jsonify(user)
 
+@app.route("/users/me", methods=["GET"])
+@auth
+def get_me():
+	user = User.query.filter(User.id == g.user.id).first()
+	return user_schema.jsonify(user)
+
 @app.route("/users", methods=["GET"])
 @auth
 def list_users():
