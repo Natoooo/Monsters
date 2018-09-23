@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { addPost } from "../actions/postActions"
+import { createPost } from "../actions/postActions"
 import { connect } from "react-redux"
 
 class  AddPost extends Component {
@@ -36,9 +36,9 @@ class  AddPost extends Component {
     })
   }
 
-  addPost(title, content, file, posted_at) {
+  addPost() {
     if(this.state.title != 0 && this.state.content != 0) {
-        this.props.addPost(this.state.title, this.state.content, this.state.file, this.props.posts[0].posted_at)
+        this.props.createPost(this.state.title, this.state.content, this.state.file)
     }
 
     this.setState({
@@ -93,7 +93,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return ({
-    addPost: (title, content, file, posted_at) => { dispatch(addPost(title, content, file, posted_at)) }
+    createPost: (title, content, file) => { dispatch(createPost(title, content, file)) }
   })
 }
 

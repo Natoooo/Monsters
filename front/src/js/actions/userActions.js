@@ -30,3 +30,20 @@ export function fetchUsersList() {
       })
   }
 }
+
+export function openProfileById(userId) {
+  return (dispatch) => {
+    dispatch(loading(true))
+    authorized(dispatch, db.openProfileById(userId))
+      .then((user) => {
+        console.log("GOT_FETCH_USERS_BY_ID")
+        dispatch(loading(false))
+        dispatch(usersListReceived(users))
+      })
+      .catch((e) => {
+        console.log("ERR_FETCH_USERS_BY_ID")
+        dispatch(loading(false))
+        dispatch(error("FAILED_TO_LOAD_USERS_BY_ID"))
+      })
+  }
+}

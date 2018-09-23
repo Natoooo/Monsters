@@ -5,51 +5,28 @@ export class Profile extends Component {
   constructor(props) {
     super(props)
   }
+
   render() {
-    let users = this.props.users.map((user, id) => {
-      return (
-        <div key={id} data-id={user.id} className="container mw-100 p-0">
-          <div className="form-group">
-            <img className="col-12" src={user.image}/>
-          </div>
-          <div className="form-group">
-            <div><b>Name: </b>{user.name}</div>
-          </div>
-          <div className="form-group">
-            <div><b>Race: </b>{user.race}</div>
-          </div>
-          <div>
-            <div><b>Joined at: </b>{user.joined_at.substring(0, 10)}</div>
-          </div>
-          <div className="form-group">
-            <div>{user.posts}</div>
-          </div>
-        </div>
-      )
-    })
     return (
       <React.Fragment>
-        <div className="container bg-white">
-          <h5 className="container p-2 font-weight-bold">Profile</h5>
-          <div>{users}</div>
+        <div className="container p-0 " data-id={this.props.id}>
+          <h5 className="container p-2 font-weight-bold">{this.props.name} {this.props.id}Profile</h5>
+          <div className="container mw-100 p-0">
+            <div className="form-group">
+              <img className="col-12" src={this.props.image}/>
+            </div>
+            <div className="form-group">
+              <div><b>Age: </b>{this.props.age}</div>
+            </div>
+            <div className="form-group">
+              <div><b>Race: </b>{this.props.race}</div>
+            </div>
+            <div>
+              <div><b>Joined at: </b>{this.props.joined_at.substring(0, 10)}</div>
+            </div>
+          </div>
         </div>
       </React.Fragment>
     )
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    posts: state.posts,
-    users: state.users
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return ({
-    fetchPosts: () => { dispatch(fetchPosts()) },
-    removePost: (postId) => { dispatch(removePost(postId))}
-  })
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)

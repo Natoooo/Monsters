@@ -6,6 +6,10 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
+.mts-navBar {
+  position: fixed;
+}
+
 .mts-logo {
   width: 40px;
 }

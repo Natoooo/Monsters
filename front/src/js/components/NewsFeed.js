@@ -22,23 +22,23 @@ class NewsFeed extends Component {
   render() {
     let posts = this.props.posts.map((post, id) => {
       return (
-        <div key={id} data-id={post.user_id} className="container mw-100 bg-white">
+        <div key={id} data-id={id} className="container mw-100 bg-white">
           <div className="form-row">
-            <div className="form-group col-12">
+            <div className="form-group col-12 mb-0">
               <h4 className="p-2 font-weight-bold">{post.title}<span className="col-2" onClick={() => {this.removePost(post.id)}} className="mts-delete-post">X</span></h4>
             </div>
           </div>
-{ /*         <div className="form-group">
+{/*          <div className="form-group">
             <div className="container">By {this.props.users[id].name}</div>
           </div>*/}
           <div className="form-group">
             <div className="container">{post.content}</div>
           </div>
-          <div className="form-group bg-dark">
+          <div className="form-group bg-dark mb-0">
             {post.image != 0 ? <img className="mw-100" src={post.image}/> : ""}
           </div>
-          <div className="form-group">
-            <span>{post.posted_at}</span>
+          <div className="form-group p-2">
+            <span>{post.posted_at.substr(0, 10)}</span>
           </div>
         </div>
       )

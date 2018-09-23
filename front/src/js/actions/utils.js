@@ -2,7 +2,6 @@ import { AuthorizationError } from "../database/db"
 import { push  } from "connected-react-router"
 
 export function authorized(dispatch, promise) {
-
   promise.catch((err) => {
     console.log(err)
 

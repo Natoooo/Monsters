@@ -78,6 +78,15 @@ class Db {
     .then(this._json)
   }
 
+  openProfileById(userId) {
+    return fetch(this.baseUrl + "/users/" + userId, {
+      method: "GET",
+      headers: this._headers()
+    })
+    .then(this._status)
+    .then(this._json)
+  }
+
   fetchPosts() {
     return fetch(this.baseUrl + "/posts", {
       method: "GET",
@@ -87,24 +96,22 @@ class Db {
     .then(this._json)
   }
 
-  createPost(user_id, title, content, image, posted_at) {
+  createPost(title, content, image) {
     return fetch(this.baseUrl + "/posts", {
       method: "POST",
       headers: this._headers(),
       body: JSON.stringify({
-        user_id: user_id,
         title: title,
         content: content,
-        image: image,
-        posted_at: posted_at
+        image: image
       })
     })
     .then(this._status)
     .then(this._json)
   }
 
-  removePost(id) {
-  return fetch(this.baseUrl + "/posts/" + id, {
+  removePost(postId) {
+  return fetch(this.baseUrl + "/posts/" + postId, {
     method: "DELETE",
     headers: this._headers()
   })

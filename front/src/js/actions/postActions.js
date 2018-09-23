@@ -4,8 +4,8 @@ import { error } from "./errorActions"
 import { authorized } from "./utils"
 
 export const RECEIVED_POSTS = "RECEIVED_POSTS"
-export const ADD_POST = "ADD_POST"
-export const REMOVE_POST = "REMOVE_POST"
+export const ADDED_POST = "ADD_POST"
+export const REMOVED_POST = "REMOVE_POST"
 
 export function postsReceived(posts) {
   return {
@@ -33,39 +33,35 @@ export function fetchPosts() {
   }
 }
 
-export function addPost(title, content, image, posted_at) {
+export function addedPost(post) {
   return {
-    type: ADD_POST,
+    type: ADDED_POST,
     payload: {
-      title,
-      content,
-      image,
-      posted_at
+      post
     }
   }
 }
 
-
-export function createPost(user_id, title, content, image, posted_at) {
+export function createPost(title, content, image) {
   return (dispatch) => {
     dispatch(loading(true))
-    authorized(dispatch, db.createPost(user_id, title, content, image, posted_at))
+    authorized(dispatch, db.createPost(title, content, image))
       .then((post) => {
         console.log("GOT_CREATE_POST")
         dispatch(loading(false))
-        dispatch(addPost(title, content, image, posted_at))
+        dispatch(addedPost(post))
       })
       .catch(() => {
-        console.log("GOT_ERROR8CREATE_POST")
+        console.log("GOT_ERROR_CREATE_POST")
         dispatch(loading(false))
         dispatch(error("FAILED_TO_LOAD_CREATE_POST"))
       })
   }
 }
 
-export function postRemoved(postId) {
+export function removedPost(postId) {
   return {
-    type: REMOVE_POST,
+    type: REMOVED_POST,
     payload: {
       postId
     }
@@ -77,7 +73,7 @@ export function removePost(postId) {
     db.removePost(postId)
     .then((d) => {
       console.log('GOT_DELETE_POST')
-      dispatch(postRemoved(postId))
+      dispatch(removedPost(postId))
     })
     .catch((e) => {
       console.log(e)

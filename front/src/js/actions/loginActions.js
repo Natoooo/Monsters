@@ -3,7 +3,6 @@ import { error } from "./errorActions"
 import { db } from "../database/db"
 import { push } from "connected-react-router"
 
-
 export function authenticate(email, password) {
   return (dispatch) => {
     dispatch(loading(true))

@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import SearchProfiles from "./SearchProfiles"
-import Profile from "./Profile"
+import Profiles from "./Profiles"
 import NewsFeed from "./NewsFeed"
 import { NavBar } from "./NavBar"
 import AddPost from "./AddPost"
 
 export class  App extends Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
     return (
       <React.Fragment>
@@ -19,7 +22,7 @@ export class  App extends Component {
               <NewsFeed />
             </div>
             <div className="col-3 text-center">
-              <Profile />
+              <Profiles />
             </div>
           </div>
         </div>
