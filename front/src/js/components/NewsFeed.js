@@ -28,9 +28,9 @@ class NewsFeed extends Component {
               <h4 className="p-2 font-weight-bold">{post.title}<span className="col-2" onClick={() => {this.removePost(post.id)}} className="mts-delete-post">X</span></h4>
             </div>
           </div>
-{/*          <div className="form-group">
-            <div className="container">By {this.props.users[id].name}</div>
-          </div>*/}
+          <div className="form-group">
+            <div className="container"><em>By {post.user.name}</em></div>
+          </div>
           <div className="form-group">
             <div className="container">{post.content}</div>
           </div>
