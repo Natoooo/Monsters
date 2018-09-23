@@ -29,7 +29,7 @@ class NewsFeed extends Component {
             </div>
           </div>
           <div className="form-group">
-            <div className="container"><em>By {post.user.name}</em></div>
+            <div className="container border-top border-bottom"><em>By {post.user.name}</em></div>
           </div>
           <div className="form-group">
             <div className="container">{post.content}</div>

@@ -69,7 +69,7 @@ class Db {
     localStorage.removeItem('token')
   }
 
-  fetchUsersList() {
+  fetchUsers() {
     return fetch(this.baseUrl + "/users", {
       method: "GET",
       headers: this._headers()
@@ -78,8 +78,17 @@ class Db {
     .then(this._json)
   }
 
-  openProfileById(userId) {
+  fetchUser(userId) {
     return fetch(this.baseUrl + "/users/" + userId, {
+      method: "GET",
+      headers: this._headers()
+    })
+    .then(this._status)
+    .then(this._json)
+  }
+
+  me() {
+    return fetch(this.baseUrl + "/users/me", {
       method: "GET",
       headers: this._headers()
     })

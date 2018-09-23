@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Profile }from "./Profile"
+import { me } from "../actions/userActions"
 import { connect } from "react-redux"
 
 class Profiles extends Component {
@@ -7,15 +8,15 @@ class Profiles extends Component {
     super(props)
   }
 
-  render() {
-    let users = this.props.users.map((user) => {
-          return <Profile id={user.id} key={user.id} image={user.image} name={user.name} age={user.age} race={user.race} joined_at={user.joined_at} />
-    })
+  componentDidMount() {
+    this.props.me()
+  }
 
+  render() {
     return (
       <React.Fragment>
         <div className="form-group bg-white m-2">
-          <div>{users}</div>
+          <Profile profile={this.props.profile}/>
         </div>
       </React.Fragment>
     )
@@ -24,9 +25,14 @@ class Profiles extends Component {
 
 const mapStateToProps = state => {
   return {
-    posts: state.posts,
-    users: state.users
+    profile: state.currentProfile
   }
 }
 
-export default connect(mapStateToProps)(Profiles)
+const mapDispatchToProps = dispatch => {
+  return {
+    me: () => { dispatch(me()) }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profiles)

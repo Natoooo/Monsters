@@ -7,25 +7,30 @@ export class Profile extends Component {
   }
 
   render() {
+    // if (!this.props.profile) {
+    //   return null
+    // } else {
+    console.log(Object.keys(this.props.profile).length)
     return (
       <React.Fragment>
-        <div className="container p-0 " data-id={this.props.id}>
-          <h5 className="container p-2 font-weight-bold">{this.props.name} {this.props.id}Profile</h5>
+        {Object.keys(this.props.profile).length > 0  ? (
+        <div className="container p-0 " data-id={this.props.profile.id}>
+          <h5 className="container p-2 font-weight-bold">{this.props.profile.name} Profile</h5>
           <div className="container mw-100 p-0">
             <div className="form-group">
-              <img className="col-12" src={this.props.image}/>
+              <img className="col-12" src={this.props.profile.image}/>
             </div>
             <div className="form-group">
-              <div><b>Age: </b>{this.props.age}</div>
+              <div><b>Age: </b>{this.props.profile.age}</div>
             </div>
             <div className="form-group">
-              <div><b>Race: </b>{this.props.race}</div>
+              <div><b>Race: </b>{this.props.profile.race}</div>
             </div>
             <div>
-              <div><b>Joined at: </b>{this.props.joined_at.substring(0, 10)}</div>
+              <div><b>Joined at: </b>{this.props.profile.joined_at.substring(0, 10)}</div>
             </div>
           </div>
-        </div>
+        </div>) : <div className="container p-0 "></div>}
       </React.Fragment>
     )
   }
