@@ -1,17 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
 import { logout } from "../actions/logoutActions"
+import { me } from  "../actions/userActions"
 
 class NavBar extends Component {
   constructor(props) {
     super(props)
 
-    this.onSubmit= this.onSubmit.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
+    this.myProfile = this.myProfile.bind(this)
   }
 
   onSubmit(e) {
     e.preventDefault()
     this.props.logout()
+  }
+
+  myProfile() {
+    console.log("OPEN_MY_PROFILE", me)
+    this.props.me()
   }
 
   render() {
@@ -25,8 +32,8 @@ class NavBar extends Component {
               onsters</a>
             </div>
 
-            <ul className="nav navbar-nav">
-              <li><a href="#" style={{fontSize: "16px", color: "white"}}>My Profile</a></li>
+            <ul className="nav navbar-nav">s
+              <li><a href="#" style={{fontSize: "16px", color: "white"}} onClick={this.myProfile} >My Profile</a></li>
             </ul>
 
             <ul className="nav navbar-nav navbar-right">
@@ -41,7 +48,8 @@ class NavBar extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    logout: () => { dispatch(logout()) }
+    logout: () => { dispatch(logout()) },
+    me: () => { dispatch(me()) }
   }
 }
 

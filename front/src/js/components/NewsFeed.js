@@ -61,7 +61,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return ({
     fetchPosts: () => { dispatch(fetchPosts()) },
-    removePost: (postId) => { dispatch(removePost(postId))}
+    removePost: (postId) => { dispatch(removePost(postId)) }
   })
 }
 

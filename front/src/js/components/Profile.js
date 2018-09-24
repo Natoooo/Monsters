@@ -7,10 +7,6 @@ export class Profile extends Component {
   }
 
   render() {
-    // if (!this.props.profile) {
-    //   return null
-    // } else {
-    console.log(Object.keys(this.props.profile).length)
     return (
       <React.Fragment>
         {Object.keys(this.props.profile).length > 0  ? (
