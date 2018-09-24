@@ -92,7 +92,7 @@ data = [
     User(
         name='Rachou',
         email='rachou@gmail.com',
-        age='976',
+        age='276',
         password='fleurfleur',
         image="http://www.fondsecran.eu/a/get_photo/365819/2560/1600",
         joined_at=parse('2018-08-10'),
@@ -104,7 +104,93 @@ data = [
             image="https://sain-et-naturel.com/wp-content/uploads/2017/07/ange-gardien.jpg",
             posted_at=parse('2018-09-02')
         )
-    ])
+    ]),
+    User(
+        name='Armanda',
+        email='armanda@gmail.com',
+        age = '299',
+        password='petitlutin',
+        image="https://www.direct2artist.com/system/artworks/preview_images/000/002/147/medium/Catrina_.jpg?1426844712",
+        joined_at=parse('2018-09-12'),
+        race="WITCH_WIZARD"
+    ),
+    User(
+        name='Pr. Timi',
+        email='timi@gmail.com',
+        age = '919',
+        password='petitcheval',
+        image="https://img00.deviantart.net/b011/i/2012/360/3/5/wise_old_wizard_by_xxtokenxx-d5pah0w.jpg",
+        joined_at=parse('2018-09-13'),
+        race="WITCH_WIZARD"
+    ),
+    User(
+        name='Larry',
+        email='larry@gmail.com',
+        age = '58',
+        password='petitefleur',
+        image="https://13daysofhalloween.files.wordpress.com/2015/08/devil.jpg",
+        joined_at=parse('2018-09-14'),
+        race="DEMON"
+    ),
+    User(
+        name='Marge',
+        email='marge@gmail.com',
+        age = '158',
+        password='petitcoeur',
+        image="https://vignette.wikia.nocookie.net/darkskies/images/0/01/Vampire_diana_blood_by_darkest_b4_dawn-d6dfhrv.jpg/revision/latest?cb=20140320044031",
+        joined_at=parse('2018-09-15'),
+        race="VAMPIRE"
+    ),
+
+    User(
+        name='Crikette',
+        email='crikette@gmail.com',
+        age = '35',
+        password='petitlard',
+        image="https://i.pinimg.com/originals/5a/33/e2/5a33e2cde3b1515672378583b8eb5a77.png",
+        joined_at=parse('2018-09-16'),
+        race="WEREWOLF"
+    ),
+
+    User(
+        name='Benoist',
+        email='benoist@gmail.com',
+        age = '700',
+        password='petitcroc',
+        image="http://galeriegothik.g.a.pic.centerblog.net/f0a919d0.jpg",
+        joined_at=parse('2018-09-17'),
+        race="VAMPIRE"
+    ),
+
+    User(
+        name='Georges',
+        email='georges@gmail.com',
+        age = '30',
+        password='petitprout',
+        image="https://vignette.wikia.nocookie.net/teenwolf/images/e/e7/News5189_1.jpg/revision/latest?cb=20120711003217&path-prefix=fr",
+        joined_at=parse('2018-09-18'),
+        race="WEREWOLF"
+    ),
+
+    User(
+        name='Kyle',
+        email='kyle@gmail.com',
+        age = '309',
+        password='petitcaca',
+        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF5ITz-2cE1J5SRqEx6Udyg-BCrekmgTS2zFPrEByidZMx4ZUp",
+        joined_at=parse('2018-09-19'),
+        race="VAMPIRE"
+    ),
+
+    User(
+        name='Kim',
+        email='kim@gmail.com',
+        age = '509',
+        password='petitzizi',
+        image="https://staticdelivery.nexusmods.com/images/110/6537199-1385130326.jpg",
+        joined_at=parse('2018-09-20'),
+        race="WITCH_WIZARD"
+    )
 ]
 #authToken = "beefc01c-eb4b-43eb-b320-7e4f4393d5bb"
 authToken = "5d7cb6bf-58ea-440b-9509-b359869c9b95"
