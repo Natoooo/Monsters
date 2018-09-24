@@ -19,8 +19,18 @@ def get_me():
 @app.route("/users", methods=["GET"])
 @auth
 def list_users():
-    users = User.query.all()
-    return users_schema.jsonify(users)
+	users = User.query
+
+	if 'race' in request.args:
+		users = users.filter(User.race == request.args['race'])
+
+	if 'name' in request.args:
+		users = users.filter(User.name.like("%" + request.args['name'] + "%"))
+
+	if 'age' in request.args:
+		users = users.filter(User.age == request.args['age'])
+
+	return users_schema.jsonify(users.all())
 
 @app.route("/users/<id>", methods=["PUT"])
 @auth
