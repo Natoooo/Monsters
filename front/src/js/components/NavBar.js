@@ -32,7 +32,7 @@ class NavBar extends Component {
               onsters</a>
             </div>
 
-            <ul className="nav navbar-nav">s
+            <ul className="nav navbar-nav">
               <li><a href="#" style={{fontSize: "16px", color: "white"}} onClick={this.myProfile} >My Profile</a></li>
             </ul>
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 
-export class Error extends Component {
+export class ErrorMessage extends Component {
   constructor(props) {
 	  super(props)
   }
@@ -9,12 +9,11 @@ export class Error extends Component {
   render() {
     return (
       <React.Fragment>
-        <div>
-            {
-              this.props.error == true ? <p className="mts-error">Sorry! There was an error
-            </p> : ""
-            }
-        </div>
+        {
+          this.props.error == true ?
+            <div className="mts-container-error">
+              <p className="mts-error">Sorry! There was an error</p></div> : ""
+        }
       </React.Fragment>
     )
   }
@@ -26,4 +25,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Error)
+export default connect(mapStateToProps)(ErrorMessage)

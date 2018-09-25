@@ -69,8 +69,22 @@ class Db {
     localStorage.removeItem('token')
   }
 
-  fetchUsers() {
-    return fetch(this.baseUrl + "/users", {
+  fetchUsers(race, name, age) {
+    let url = this.baseUrl + "/users?"
+
+    if (race != null) {
+      url += "race=" + race + "&"
+    }
+
+    if (name != null) {
+      url += "name=" + name + "&"
+    }
+
+    if (age != null) {
+      url += "age=" + age + "&"
+    }
+
+    return fetch(url, {
       method: "GET",
       headers: this._headers()
     })

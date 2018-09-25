@@ -8,6 +8,7 @@ export function authorized(dispatch, promise) {
     if (err instanceof AuthorizationError) {
       console.log("redirect to login")
       dispatch(push("/login"))
+    } else {
       throw err
     }
   })
