@@ -1,8 +1,6 @@
 import React, { Component } from "react"
 import { Profile }from "./Profile"
 import { me } from "../actions/userActions"
-import Loading from "./Loading"
-import ErrorMessage from "./Error"
 import { connect } from "react-redux"
 
 class Profiles extends Component {
@@ -17,7 +15,7 @@ class Profiles extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="form-group bg-white">
+        <div className="form-group bg-white m-0">
           <Profile profile={this.props.profile}/>
         </div>
       </React.Fragment>

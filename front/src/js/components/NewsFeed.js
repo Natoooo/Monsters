@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
 import { fetchPosts, removePost } from "../actions/postActions"
+import Loading from "./Loading"
+import ErrorMessage from "./Error"
 
 class NewsFeed extends Component {
   constructor(props) {
@@ -22,7 +24,9 @@ class NewsFeed extends Component {
   render() {
     let posts = this.props.posts.map((post, id) => {
       return (
-        <div key={id} data-id={id} className="container mw-100 bg-white">
+        <div key={id} data-id={id} className="container mw-100 bg-white position-relative">
+          <Loading />
+          <ErrorMessage />
           <div className="form-row">
             <div className="form-group col-12 mb-0">
               <h4 className="p-2 font-weight-bold">{post.title}<span className="col-2" onClick={() => {this.removePost(post.id)}} className="mts-delete-post">X</span></h4>

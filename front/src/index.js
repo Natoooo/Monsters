@@ -13,8 +13,6 @@ import { connect } from "react-redux"
 import { db } from "./js/database/db"
 import Login from "./js/components/Login"
 import NavBar from "./js/components/NavBar"
-import Loading from "./js/components/Loading"
-import ErrorMessage from "./js/components/Error"
 import "./style/style.css"
 
 class PrivateRoute extends Component {
@@ -35,8 +33,6 @@ ReactDOM.render(
       <ConnectedRouter history={history}>
         <div className="mts-root">
           <NavBar />
-          <ErrorMessage />
-          <Loading />
           <Switch>
             <Route path="/login" render={ () => ( <Login /> ) } />
             <PrivateRoute path="/" render={ () => ( <App /> ) } />
