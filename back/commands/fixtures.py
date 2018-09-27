@@ -17,7 +17,8 @@ data = [
             title='A good Luck Ritual',
             content="You just have to boil an entire four-leaf clover with hot water and drink it on St Patrick's Day",
             image="https://www.laurakent.fr/magazine/wp-content/uploads/2017/01/Ein-vierbl%C3%A4ttriges-Kleeblatt-ist-schwer-zu-finden-bringt-aber-Gl%C3%BCck..jpg",
-            posted_at=parse('2018-06-06')
+            posted_at=parse('2018-06-06'),
+            like='4'
         )
     ]),
 
@@ -34,7 +35,8 @@ data = [
             title='A Love Ritual',
             content="Let's try this love ritual : smashed 3 marguerite and strawberries together and repeat the word love 3 times",
             image="https://i.ytimg.com/vi/TIdRsXofybM/maxresdefault.jpg",
-            posted_at=parse('2018-09-09')
+            posted_at=parse('2018-09-09'),
+            like='6'
         )
     ]),
 
@@ -51,7 +53,8 @@ data = [
             title='How to take possession of a human ?',
             content="Need a lot of power but it's not that hard. You just have to scare him during 3 nights to make him weak. But don't be silly, when I mean scared it's really scared !! Then, when He has no energy left, enter in his mind",
             image="https://www.affairesdegars.com/webroot/usr_img/2014_avril/asem5/Possession.jpg",
-            posted_at=parse('2018-09-06')
+            posted_at=parse('2018-09-06'),
+            like='5'
         )
     ]),
 
@@ -68,7 +71,8 @@ data = [
             title='The better blood',
             content="If you want to taste the better blood of the world, you just have to suck a 24 years old human female, born in August, 21st",
             image="https://fr.cdn.v5.futura-sciences.com/buildsv6/images/wide1920/7/4/7/74795ed1ee_88046_vampire-sang.jpg",
-            posted_at=parse('2018-08-08')
+            posted_at=parse('2018-08-08'),
+            like='8'
         )
     ]),
 
@@ -85,7 +89,8 @@ data = [
             title='Me as a wolf with the moon',
             content="What do ya think ?",
             image="https://defigrandesecoles.lexpress.fr/bordeaux-2017/wp-content/blogs.dir/45/files/2018/02/MagicCorporation.jpg",
-            posted_at=parse('2018-09-18')
+            posted_at=parse('2018-09-18'),
+            like='3'
         )
     ]),
 
@@ -102,7 +107,8 @@ data = [
             title='How to meditate to calm your anger?',
             content="Find a place very quiet, take a strong and deep breathe. Then you have to concentrate yourself only on positive thoughts. So easy !",
             image="https://sain-et-naturel.com/wp-content/uploads/2017/07/ange-gardien.jpg",
-            posted_at=parse('2018-09-02')
+            posted_at=parse('2018-09-02'),
+            like='8'
         )
     ]),
     User(
@@ -115,7 +121,7 @@ data = [
         race="WITCH_WIZARD"
     ),
     User(
-        name='Pr. Timi',
+        name='Timi',
         email='timi@gmail.com',
         age = '919',
         password='petitcheval',
