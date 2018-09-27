@@ -40,7 +40,7 @@ class FilterProfiles extends Component {
     console.log("ByName", filteredUsersByName)
     let filteredUsersByAge = this.props.users.filter(user => Object.keys(user.age).indexOf(this.state.inputAge) !== -1)
     console.log("ByAge", filteredUsersByAge)
-    let filteredUsersByRace = this.props.users.filter(user => user.race.indexOf(this.state.inputRace) !== -1)
+
     console.log("ByRace", filteredUsersByRace)
   }
 

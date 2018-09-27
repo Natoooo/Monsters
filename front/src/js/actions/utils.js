@@ -3,7 +3,7 @@ import { push  } from "connected-react-router"
 
 export function authorized(dispatch, promise) {
   promise.catch((err) => {
-    console.log(err)
+    console.log("ERROR_AUTHORIZED", err)
 
     if (err instanceof AuthorizationError) {
       console.log("redirect to login")

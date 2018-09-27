@@ -26,6 +26,18 @@ class Db {
   }
 
 
+  _setToken(token) {
+    localStorage.setItem('token', token)
+  }
+
+  _getToken() {
+    return localStorage.getItem('token')
+  }
+
+  _removeToken() {
+    localStorage.removeItem('token')
+  }
+
   authenticate(email, password) {
     return fetch(this.baseUrl + "/login", {
       method: "POST",
@@ -53,20 +65,8 @@ class Db {
     })
   }
 
-  _setToken(token) {
-    localStorage.setItem('token', token)
-  }
-
-  _getToken() {
-    return localStorage.getItem('token')
-  }
-
   isAuthenticated() {
     return (this._getToken() != undefined)
-  }
-
-  _removeToken() {
-    localStorage.removeItem('token')
   }
 
   fetchUsers(race, name, age) {
