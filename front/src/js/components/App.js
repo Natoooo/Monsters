@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import SearchProfiles from "./SearchProfiles"
 import Profiles from "./Profiles"
 import NewsFeed from "./NewsFeed"
-import { NavBar } from "./NavBar"
 import AddPost from "./AddPost"
+import NavBar from "./NavBar"
 
 export class  App extends Component {
   constructor(props) {
@@ -12,7 +12,8 @@ export class  App extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="container m-0 mt-4 mw-100">
+        <NavBar />
+        <div className="container m-0 mw-100">
           <div className="row">
             <div className="col-2 text-center">
               <SearchProfiles />

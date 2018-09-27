@@ -31,7 +31,7 @@ class NewsFeed extends Component {
   render() {
     let posts = this.props.posts.map((post, id) => {
       return (
-        <div key={id} data-id={id} className="container mw-100 bg-white position-relative">
+        <div key={id} data-id={id} className="container mw-100 bg-white">
           <Loading />
           <ErrorMessage />
           <div className="form-row">

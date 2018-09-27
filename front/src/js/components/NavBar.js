@@ -24,7 +24,7 @@ class NavBar extends Component {
   render() {
     return (
       <React.Fragment>
-        <nav className="navbar navbar-dark bg-dark">
+        <nav className="navbar navbar-dark bg-dark mb-4">
           <div className="container m-0 col-12">
             <div className="navbar-header">
               <a className="navbar-brand" href="#">

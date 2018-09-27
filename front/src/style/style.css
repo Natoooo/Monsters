@@ -1,13 +1,10 @@
 .mts-root {
   background-image: url("../images/my-mts-banner.jpg");
-  background-size: cover;
+  background-size:cover;
   max-width: 100%;
   min-height: 100vh;
   font-family: 'Courier New', Courier, monospace;
-}
-
-.mts-navBar {
-  position: fixed;
+  position: relative;
 }
 
 .mts-logo {
