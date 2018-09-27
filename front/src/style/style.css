@@ -41,6 +41,14 @@
   max-height: 60%;
 }
 
+.mts-profile-click {
+  cursor: pointer;
+}
+
+.mts-profile-click:hover {
+  color: red;
+}
+
 .mts-container-loading {
   width: 100%;
   height: 100%;
