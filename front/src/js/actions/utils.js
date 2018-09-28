@@ -5,6 +5,8 @@ export function authorized(dispatch, promise) {
   promise.catch((err) => {
     console.log("ERROR_AUTHORIZED", err)
 
+    console.log(typeof(err))
+
     if (err instanceof AuthorizationError) {
       console.log("redirect to login")
       dispatch(push("/login"))

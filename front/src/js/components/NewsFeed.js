@@ -15,7 +15,7 @@ class NewsFeed extends Component {
 
   render() {
     let posts = this.props.posts.map((post, id) => {
-      return <Post key={id} id={id} postId={post.id} userId={post.user.id} title={post.title} userName={post.user.name} postedAt={post.posted_at} content={post.content} image={post.image}/>
+      return <Post key={id} id={id} postId={post.id} userId={post.user.id} title={post.title} userName={post.user.name} postedAt={post.posted_at} content={post.content} image={post.image} like={post.like} />
     }).reverse()
 
     return (
@@ -28,7 +28,8 @@ class NewsFeed extends Component {
 
 const mapStateToProps = state => {
   return {
-    posts: state.posts
+    posts: state.posts,
+    users: state.users
   }
 }
 

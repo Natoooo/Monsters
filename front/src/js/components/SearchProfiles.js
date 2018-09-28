@@ -60,19 +60,11 @@ class SearchProfiles extends Component {
 
 
   render() {
-
     let filteredUsersByName = this.props.users.filter(user => {return user.name.toLowerCase().indexOf(this.state.inputName) > -1})
     let filteredUsersByRace = this.props.users.filter(user => {return user.race.toUpperCase().indexOf(this.state.inputRace) > -1})
 
-    //let filteredUsers = [[filteredUsersByName], [filteredUsersByRace]]
-    // console.log(filteredUsers)
-
-    let users = filteredUsersByName.map((user, id) => {
+    let users = filteredUsersByRace.map((user, id) => {
       return <div  key={id} data-id={user.id} className="mts-user-item" ><li onClick={()=> {this.changeProfile(user.id)}} className="list-group-item border-0 p-1 mb-2">{user.name}</li></div>
-    })
-
-    let userRace = this.props.users.map((user, id) => {
-      return <option key={id} className="list-group-item border-0 p-1 mb-2 text-dark">{user.race}</option>
     })
 
     return (
@@ -83,7 +75,11 @@ class SearchProfiles extends Component {
             <div className="input-group col-xs-2 center-block">
               <select title="Pick a race" value={this.state.inputRace} onChange={this.onChangeRace} className="custom-select bg-white text-dark w-100">
                 <option className="text-center ">By race...</option>
-                {userRace}
+                <option>WITCH_WIZARD</option>
+                <option>DEMON</option>
+                <option>VAMPIRE</option>
+                <option>WEREWOLF</option>
+                <option>ANGEL</option>
               </select>
             </div>
             <input className="form-control text-capitalize" value={this.state.inputName} onChange={this.onChangeName} placeholder="By name..."/>

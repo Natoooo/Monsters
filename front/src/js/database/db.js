@@ -25,7 +25,6 @@ class Db {
     return resp.json()
   }
 
-
   _setToken(token) {
     localStorage.setItem('token', token)
   }
@@ -140,7 +139,6 @@ class Db {
   })
   .then(this._status)
   }
-
 }
 
 export class AuthorizationError extends Error {}
