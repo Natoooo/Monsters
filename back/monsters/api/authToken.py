@@ -1,6 +1,6 @@
 from monsters.models import *
 from monsters import app, db
-from flask import request, g, jsonify
+from flask import request, g, jsonify, render_template
 import uuid
 
 def auth(fn):

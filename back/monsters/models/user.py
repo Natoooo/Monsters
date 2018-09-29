@@ -14,6 +14,7 @@ class User(db.Model):
     joined_at = db.Column(db.DateTime, nullable=True, default=datetime.utcnow())
     race = db.Column(db.Text, nullable=False)
     posts = db.relationship('Post', back_populates='user')
+    comments = db.relationship('Comment', back_populates='user')
 
     @validates('race')
     def validate_race(self, key, race):

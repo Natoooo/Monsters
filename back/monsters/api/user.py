@@ -3,6 +3,7 @@ from monsters.schemas import *
 from flask import request, g
 from monsters import app, db
 from monsters.api.authToken import auth
+import sqlalchemy as sqla
 
 @app.route("/users/<id>", methods=["GET"])
 @auth
@@ -19,18 +20,31 @@ def get_me():
 @app.route("/users", methods=["GET"])
 @auth
 def list_users():
-	users = User.query
+	q = User.query
 
 	if 'race' in request.args:
-		users = users.filter(User.race == request.args['race'])
+		q = q.filter(User.race == request.args['race'])
 
 	if 'name' in request.args:
-		users = users.filter(User.name.like("%" + request.args['name'] + "%"))
+		q = q.filter(User.name.like("%" + request.args['name'] + "%"))
 
 	if 'age' in request.args:
-		users = users.filter(User.age == request.args['age'])
+		q = q.filter(User.age == request.args['age'])
 
-	return users_schema.jsonify(users.all())
+	order_ops= {
+		'asc': sqla.asc,
+		'desc': sqla.desc
+	}
+
+	order = order_ops.get(request.args.get('order_op', 'asc'), None)
+
+	if order == None:
+		return "", 400
+
+	q = q.order_by(order(request.args.get('order_by', 'name')))
+	q = q.limit(int(request.args.get('page_size', 5)))
+	q = q.offset(int(request.args.get('page_size', 5)) * int(request.args.get('page', 0)))
+	return users_schema.jsonify(q.all())
 
 @app.route("/users/<id>", methods=["PUT"])
 @auth
