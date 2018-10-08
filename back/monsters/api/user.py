@@ -5,6 +5,7 @@ from monsters import app, db
 from monsters.api.authToken import auth
 import sqlalchemy as sqla
 
+
 @app.route("/users/<id>", methods=["GET"])
 @auth
 def get_user(id):
@@ -26,7 +27,7 @@ def list_users():
 		q = q.filter(User.race == request.args['race'])
 
 	if 'name' in request.args:
-		q = q.filter(User.name.like("%" + request.args['name'] + "%"))
+		q = q.filter(sqla.func.lower(User.name).like("%" + request.args['name'].lower() + "%"))
 
 	if 'age' in request.args:
 		q = q.filter(User.age == request.args['age'])
