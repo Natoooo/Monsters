@@ -24,21 +24,24 @@ class NavBar extends Component {
   render() {
     return (
       <React.Fragment>
-        <nav className="navbar navbar-dark bg-dark mb-4">
+        <nav className="navbar navbar-dark bg-dark mb-4 p-0">
           <div className="container m-0 col-12">
-            <div className="navbar-header">
-              <a className="navbar-brand" href="#">
-                <img alt="Brand" className="mts-logo" src="http://static.tumblr.com/2b3ba360463d61bbef79484dd2c2ade8/bx0jiaj/Akto3c8b5/tumblr_static_f1zuu5ooefk8w044kckksoc44.png" />
-              onsters</a>
-            </div>
+              <div className="navbar-header">
+                <a className="navbar-brand m-0" href="#">
+                  <img alt="Brand" className="mts-logo" src="http://static.tumblr.com/2b3ba360463d61bbef79484dd2c2ade8/bx0jiaj/Akto3c8b5/tumblr_static_f1zuu5ooefk8w044kckksoc44.png" />
+                onsters</a>
+              </div>
 
-            <ul className="nav navbar-nav">
-              <li><a href="#" style={{fontSize: "16px", color: "white"}} onClick={this.myProfile} >My Profile</a></li>
-            </ul>
 
-            <ul className="nav navbar-nav navbar-right">
-              <li><a href="#"><button className="btn btn-danger" onClick={this.onSubmit}>Logout</button></a></li>
-            </ul>
+              <ul className="nav navbar-nav d-block">
+                <li className="d-inline pr-5"><a href="#" style={{fontSize: "16px", color: "white"}}>Home</a></li>
+                <li className="d-inline pl-5"><a href="#" style={{fontSize: "16px", color: "white"}} onClick={this.myProfile} >My Profile</a></li>
+              </ul>
+
+              <ul className="nav navbar-nav navbar-right">
+                <li><a href="#"><button className="btn btn-danger" onClick={this.onSubmit}>Logout</button></a></li>
+              </ul>
+
           </div>
         </nav>
       </React.Fragment>

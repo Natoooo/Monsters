@@ -18,11 +18,11 @@ export class  App extends Component {
             <div className="col-2 text-center">
               <SearchProfiles />
             </div>
-            <div className="col-7 text-center">
+            <div className="col-8 text-center">
               <AddPost />
               <NewsFeed />
             </div>
-            <div className="col-3 text-center">
+            <div className="col-2 text-center">
               <Profiles />
             </div>
           </div>

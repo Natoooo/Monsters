@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
+import { fetchUsers } from "../actions/userActions"
 
 class FilterProfiles extends Component {
   constructor(props) {
@@ -7,70 +8,66 @@ class FilterProfiles extends Component {
 
     this.state = {
       inputRace: "",
-      inputName:"",
-      inputAge:""
+      inputName: "",
+      inputAge: {}
     }
 
     this.onChangeRace = this.onChangeRace.bind(this)
     this.onChangeName = this.onChangeName.bind(this)
-    this.onChangeAge = this.onChangeAge.bind(this)
-    this.filterUser = this.filterUser.bind(this)
+    // this.onChangeAge = this.onChangeAge.bind(this)
   }
 
   onChangeRace(e) {
-      this.setState({
-        inputRace:e.target.value
-      })
+    this.setState({
+      inputRace: e.target.value
+    })
+
+    this.props.fetchUsers({race: e.target.value == "By race..." ? "" : e.target.value })
   }
 
   onChangeName(e) {
-      this.setState({
-        inputName: e.target.value
-      })
-  }
-
-  onChangeAge(e) {
-      this.setState({
-        inputAge: e.target.value
-      })
-  }
-
-  filterUser() {
-    let filteredUsersByName = this.props.users.filter(user => user.name.indexOf(this.state.inputName) !== -1)
-    console.log("ByName", filteredUsersByName)
-    let filteredUsersByAge = this.props.users.filter(user => Object.keys(user.age).indexOf(this.state.inputAge) !== -1)
-    console.log("ByAge", filteredUsersByAge)
-
-    console.log("ByRace", filteredUsersByRace)
-  }
-
-  render() {
-    let userRace = this.props.users.map((user, id) => {
-      return <option key={id} className="list-group-item border-0 p-1 mb-2 text-dark" value={this.state.inputRace} onChange={this.onChangeRace}>{user.race}</option>
+    this.setState({
+      inputName: e.target.value
     })
 
+    this.props.fetchUsers({name: e.target.value})
+  }
+
+  // onChangeAge(e) {
+  //   this.setState({
+  //     inputAge: e.target.value
+  //   })
+  //
+  //   // this.props.fetchUsers(this.state.inputName, this.state.inputRace)
+  // }
+
+
+  render() {
     return (
       <React.Fragment>
         <div className="form-group row d-block">
           <div className="input-group col-xs-2 center-block">
-            <select title="Pick a race" className="custom-select bg-white text-dark w-100">
-              <option className="text-center ">By race...</option>
-              {userRace}
+            <select title="Pick a race" value={this.state.inputRace} onChange={this.onChangeRace} className="custom-select bg-white text-dark w-100">
+              <option className="text-center">By race...</option>
+              <option>WITCH_WIZARD</option>
+              <option>DEMON</option>
+              <option>VAMPIRE</option>
+              <option>WEREWOLF</option>
+              <option>ANGEL</option>
             </select>
           </div>
           <input className="form-control text-capitalize" value={this.state.inputName} onChange={this.onChangeName} placeholder="By name..."/>
-          <input className="form-control mb-3 text-capitalize" value={this.state.inputAge} onChange={this.onChangeAge} placeholder="By age..."/>
-          // <button className="btn btn-info" onClick={this.filterUser}>Find</button>
-        </div>
+  { /*           <input className="form-control mb-3 text-capitalize" value={this.state.inputAge} onChange={this.onChangeAge} placeholder="By age..."/>
+  */}   </div>
       </React.Fragment>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    users: state.users
-  }
+const mapDispatchToProps = dispatch => {
+  return ({
+    fetchUsers: (props) => { dispatch(fetchUsers(props)) }
+  })
 }
 
-export default connect(mapStateToProps)(FilterProfiles)
+export default connect (null, mapDispatchToProps)(FilterProfiles)
