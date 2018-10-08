@@ -1,4 +1,5 @@
 import "whatwg-fetch"
+import {stringify} from "qs"
 
 class Db {
   constructor() {
@@ -68,22 +69,24 @@ class Db {
     return (this._getToken() != undefined)
   }
 
-  fetchUsers(race, name, age) {
+  fetchUsers(name, race, options={}) {
     let url = this.baseUrl + "/users?"
 
-    if (race != null) {
-      url += "race=" + race + "&"
+    let params = {...options}
+
+    if (race != null && race != undefined && race != "") {
+      params["race"] = race
     }
 
-    if (name != null) {
-      url += "name=" + name + "&"
+    if (name != null && name != undefined && name != "") {
+      params["name"] = name
     }
 
-    if (age != null) {
-      url += "age=" + age + "&"
-    }
+    // if (age != null) {
+    //   url += "age=" + age + "&"
+    // }
 
-    return fetch(url, {
+    return fetch(url + stringify(params), {
       method: "GET",
       headers: this._headers()
     })

@@ -36,6 +36,7 @@
 .mts-img-post {
   width: 100%;
   max-height: 60%;
+  background-color: black;
 }
 
 .mts-profile-click {
@@ -51,7 +52,11 @@
 }
 
 .mts-icone-like {
-  width: 20px;
+  width: 23px;
+}
+
+.mts-icone-comment {
+  width: 23px;
 }
 
 .mts-container-loading {
